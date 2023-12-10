@@ -25,11 +25,11 @@ std::map<std::string, int> string_to_num = {{"one", 1}, {"two", 2},
 
 int find_in_line(std::string line, bool is_forward) {
     if (is_forward) {
-        for (int i = 0; i < line.size(); i++) {
+        for (size_t i = 0; i < line.size(); i++) {
             if (isdigit(line[i])) {
                 return line[i] - '0';
             }
-            for (int j = i + 1; j < line.size(); j++) {
+            for (size_t j = i + 1; j < line.size(); j++) {
                 if (numbers.find(line.substr(i, j - i + 1)) != numbers.end()) {
                     return string_to_num[line.substr(i, j - i + 1)];
                 }
@@ -45,6 +45,7 @@ int find_in_line(std::string line, bool is_forward) {
             }
         }
     }
+    return 0;
 }
 
 
